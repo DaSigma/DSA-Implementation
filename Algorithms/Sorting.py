@@ -1,4 +1,7 @@
-########## Sorting ##########
+########## Basic Sorting ##########
+
+import random
+
 
 def bubbleSort(mylist):
    for i in range(len(mylist) - 1, 0, -1):
@@ -20,11 +23,47 @@ def insertionSort(myList):
       while myList[j + 1] < myList[j] and j >= 0:
          myList[j + 1], myList[j] = myList[j], myList[j + 1]
          j -= 1
-         
-      
-        
-l = ['a','z','n','r','q',]
-# l = [4,2,6,5,1,3]
-print('Unsorted', l)
-insertionSort(l)
+
+
+### Merge Sort ###
+# Lists have to be sorted
+def merge(list1, list2): 
+    combined = []
+    p1, p2 = 0, 0
+    while p1 < len(list1) and p2 < len(list2):
+        if list1[p1] < list2[p2]:
+            combined.append(list1[p1])
+            p1 += 1
+        else:
+            combined.append(list2[p2])
+            p2 += 1
+    while p1 < len(list1):
+        combined.append(list1[p1])
+        p1 += 1
+    while p2 < len(list2):
+        combined.append(list2[p2])
+        p2 += 1
+    return combined
+
+def mergeSort(myList):
+   if len(myList) == 1:
+      return myList
+   midIndex = len(myList)//2
+   left = mergeSort(myList[:midIndex])
+   right = mergeSort(myList[midIndex:])
+   
+   return merge(left, right)
+##################
+
+
+# l = ['a','z','n','r','q',]
+# l2 = [8, 10, 9, 7, 11, 0]
+l = [4,2,6,5,1,3,8, 10, 9, 7, 11, 0]
+n = 100
+l = random.sample(range(1, 1000), n)
+print('Unsorted', l, '\n')
+print(mergeSort(l))
+# l = [1,3,7,8]
+# l2 = [2,4,5,6]
 print('Sorted', l)
+
