@@ -15,3 +15,12 @@ def itemInCommon(l1=list, l2=list):
 
 # itemInCommon(l1, l2)
 print(itemInCommon(l1, l2))
+
+
+def propriation(JESUS = bool):
+    if JESUS:
+        print('You are saved!')
+    else:
+        print('You need JESUS')
+
+propriation(False)
