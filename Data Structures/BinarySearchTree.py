@@ -30,6 +30,17 @@ class BinarySearchTree:
                     temp.right = node
                     return True
                 temp = temp.right
+                
+    def insertRecursive(self, value):
+        def insertHelper(node, value):
+            if node is None:
+                return Node(value)
+            if value < node.value:
+                node.left = insertHelper(node.left, value)
+            else:
+                node.right = insertHelper(node.right, value)
+            return node
+        self.root = insertHelper(self.root, value)
 
     def contains(self, value):
         temp = self.root
@@ -113,16 +124,24 @@ class BinarySearchTree:
         dfs(self.root)
         return results
 
+
 tree = BinarySearchTree()
-tree.insert(47)
-tree.insert(21)
-tree.insert(76)
-tree.insert(18)
-tree.insert(27)
-tree.insert(52)
-tree.insert(82)
+# tree.insert(47)
+# tree.insert(21)
+# tree.insert(76)
+# tree.insert(18)
+# tree.insert(27)
+# tree.insert(52)
+# tree.insert(82)
+tree.insertRecursive(47)
+tree.insertRecursive(21)
+tree.insertRecursive(76)
+tree.insertRecursive(18)
+tree.insertRecursive(27)
+tree.insertRecursive(52)
+tree.insertRecursive(82)
 
 
 # tree = [[47], [21,76], [18,27,52,82]]
 # print(tree.BFSLevels())
-print(tree.dfsInOrder())
+print(tree.dfsPreOrder())
