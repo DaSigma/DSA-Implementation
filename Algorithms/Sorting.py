@@ -56,14 +56,45 @@ def mergeSort(myList):
 ##################
 
 
+####### Quick Sort #######+
+def swap(myList, index1, index2):
+   myList[index1], myList[index2] = myList[index2], myList[index1]
+
+def pivot(myList, pivotIndex, endIndex): 
+    swapIndex = pivotIndex
+    for i in range(pivotIndex + 1, endIndex + 1):
+        if myList[i] < myList[pivotIndex]:
+            swapIndex += 1
+            swap(myList, swapIndex, i)
+    swap(myList, pivotIndex, swapIndex)
+    return swapIndex
+
+
+def quickSortHelper(myList, left, right):
+   if left < right:
+      pivotIndex = pivot(myList, left, right)
+      quickSortHelper(myList, left, pivotIndex -1)
+      quickSortHelper(myList, pivotIndex + 1, right)
+   return myList
+
+def quickSort(myList):
+   return(quickSortHelper(myList, 0, len(myList) - 1))
+##########################
+
+
 # l = ['a','z','n','r','q',]
 # l2 = [8, 10, 9, 7, 11, 0]
-l = [4,2,6,5,1,3,8, 10, 9, 7, 11, 0]
 n = 100
 l = random.sample(range(1, 1000), n)
-print('Unsorted', l, '\n')
-print(mergeSort(l))
-# l = [1,3,7,8]
-# l2 = [2,4,5,6]
-print('Sorted', l)
+# print('Unsorted', l, '\n')
+# print(mergeSort(l))
+# # l = [1,3,7,8]
+# # l2 = [2,4,5,6]
+# print('Sorted', l)
 
+# l = [4,2,6,5,1,3,8, 10, 9, 7, 11, 0]
+
+# l = [4, 6, 1, 7, 3, 2, 5]
+print(l)
+quickSort(l)
+print(l)
