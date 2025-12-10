@@ -5,23 +5,23 @@ class Node:
 
 class Stack:
    def __init__(self, value = None):
-      newNode = Node(value)
-      self.top = newNode
+      new_node = Node(value)
+      self.top = new_node
       self.height = 1
 
-   def printStack(self):
+   def print_stack(self):
       temp = self.top
       while temp:
          print(temp.value)
          temp = temp.next
 
    def push(self, value):
-      newNode = Node(value)
+      new_node = Node(value)
       if self.height is None:
-         self.top = newNode
+         self.top = new_node
       else:
-         newNode.next = self.top
-         self.top = newNode
+         new_node.next = self.top
+         self.top = new_node
       self.height += 1
       return True      
 
@@ -39,4 +39,4 @@ stack = Stack('a')
 stack.push('b')
 stack.push('c')
 stack.pop()
-stack.printStack()
+stack.print_stack()
