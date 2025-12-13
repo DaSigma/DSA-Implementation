@@ -1,10 +1,11 @@
 ########## Basic Sorting ##########
 
 import random
+from functools import cmp_to_key
 
 
 def bubble_sort(mylist):
-   for i in range(len(mylist) - 1, 0, -1): #renge(start, stop, step)
+   for i in range(len(mylist) - 1, 0, -1): #range(start, stop, step)
       for j in range(i):
          if mylist[j] > mylist[j + 1]:
             mylist[j],mylist[j + 1] = mylist[j + 1], mylist[j]
@@ -114,3 +115,17 @@ l = random.sample(range(1, 100), n)
 print(f"l {l}")
 # quick_sort(l)
 print(f"l after sort {insertion_sort_algo(l)}")
+
+tasks = [
+    ('Cook', 5),
+    ('Gym', 3),
+    ('Clean', 1),
+]
+print(f"tasks {tasks}")
+sorted_tasks = sorted(tasks, key=lambda x: x[1])        # returns new array
+print(f"sorted tasks {sorted_tasks}")
+tasks.sort(key=lambda x: x[1]) # in-place sort
+print(f"tasks sort{tasks}")
+
+sorted_tasks.sort(key=cmp_to_key(lambda t1, t2: t1[1] < t2[1])) ## Review, not 100% clear
+print(f"sorted tasks {sorted_tasks}")
