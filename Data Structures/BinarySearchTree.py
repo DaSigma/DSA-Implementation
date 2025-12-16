@@ -2,10 +2,11 @@ import collections
 
 
 class Node:
-   def __init__(self, value = None):
-      self.value = value
-      self.left = None
-      self.right = None
+    def __init__(self, value=None):
+        self.value = value
+        self.left = None
+        self.right = None
+
 
 class BinarySearchTree:
     def __init__(self):
@@ -30,7 +31,7 @@ class BinarySearchTree:
                     temp.right = node
                     return True
                 temp = temp.right
-                
+
     def insertRecursive(self, value):
         def insertHelper(node, value):
             if node is None:
@@ -40,6 +41,7 @@ class BinarySearchTree:
             else:
                 node.right = insertHelper(node.right, value)
             return node
+
         self.root = insertHelper(self.root, value)
 
     def contains(self, value):
@@ -53,7 +55,7 @@ class BinarySearchTree:
                 return True
         return False
 
-    def BFS(self): #Basic BFS Traversal
+    def BFS(self):  # Basic BFS Traversal
         q = collections.deque()
         res = []
         if self.root:
@@ -90,37 +92,46 @@ class BinarySearchTree:
 
     def dfsPreOrder(self):
         results = []
+
         def dfs(node):
-            if not node: return None
+            if not node:
+                return None
             results.append(node.value)
             if node.left:
                 dfs(node.left)
             if node.right:
                 dfs(node.right)
+
         dfs(self.root)
         return results
 
     def dfsPostOrder(self):
         results = []
+
         def dfs(node):
-            if not node: return None
+            if not node:
+                return None
             if node.left:
                 dfs(node.left)
             if node.right:
                 dfs(node.right)
             results.append(node.value)
+
         dfs(self.root)
         return results
-     
+
     def dfsInOrder(self):
         results = []
+
         def dfs(node):
-            if not node: return None
+            if not node:
+                return None
             if node.left:
                 dfs(node.left)
             results.append(node.value)
             if node.right:
                 dfs(node.right)
+
         dfs(self.root)
         return results
 

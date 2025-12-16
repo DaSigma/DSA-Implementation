@@ -3,25 +3,25 @@
 list1:  list[int] = [1]
 list2: list[int] =[1]
 def item_in_common(l1, l2):
-    check_dict = {}
-    for n in l1:
-        check_dict[n] = check_dict.get(n, 0) + 1
-    print(check_dict)
+     check_dict = {}
+     for n in l1:
+          check_dict[n] = check_dict.get(n, 0) + 1
+     print(check_dict)
 
-    for n in l2:
-        if n in check_dict:
-            return True
-    return False
+     for n in l2:
+          if n in check_dict:
+                return True
+     return False
 
 # itemInCommon(l1, l2)
 print(item_in_common(list1, list2))
 
 
 def propitiation(JESUS):
-    if JESUS:
-        print('You are saved!')
-    else:
-        print('You need JESUS')
+     if JESUS:
+          print('You are saved!')
+     else:
+          print('You need JESUS')
 
 propitiation(False)
 
