@@ -79,3 +79,13 @@ Time Complexity: O(n log n), Space Complexity: O(n)
 7. Concatenate: left + [pivot] + right
 Time Complexity: O(n log n) average, O(n²) worst case, Space Complexity: O(log n)
 '''
+
+'''Binary search Algorithm
+1. Define function that takes a list
+2. Loop through list from start to end with while loop
+3. Define middle element of list
+4. If middle element is greater than target element, discard everything to the right
+5. If middle element is less than target element, discard everything to the left
+6. If middle element is equal to target element, return the middle element's index
+7. If the target is not found, return -1
+'''
